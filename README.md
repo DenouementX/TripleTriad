@@ -1,0 +1,1 @@
+A web implementation of the card mini-game Triple Triad from Final Fantasy VIII

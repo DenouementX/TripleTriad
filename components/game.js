@@ -6,11 +6,11 @@ export default function Game() {
         <div>
             This is a game
             <hr />
-            <Hand />
+            <Hand cardIDs = {[1,2,3,4,5]} color = "R"/>
             <hr />
             <Gameboard />
             <hr />
-            <Hand />
+            <Hand cardIDs = {[6,7,8,9,10]} color = "B"/>
             <hr />
         </div>
     );

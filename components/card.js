@@ -4,7 +4,7 @@ import { getCard, getCardImageURL } from "../lib/cardHelper";
 export default function Card({cardID, color, owner}) {
 
     var cardInfo = getCard(cardID);
-    var cardURL = getCardImageURL(cardID, '/../public/cards/');
+    var cardURL = getCardImageURL(cardID, '/cards/');
 
     return (
         <div className="relative">

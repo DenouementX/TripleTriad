@@ -51,7 +51,7 @@ export default function Game() {
     return (
         <GameboardColorContext.Provider value={{gameboardColor, updateGameboardColor}}>
             <GameboardContext.Provider value={{gameboard, updateGameboard}}>
-                <div className="bg-[#E9DAC4] mx-40 border bg-no-repeat bg-center bg-[url('../public/TripleTriadLogo.png')]">
+                <div className="bg-[#E9DAC4] xl:mx-40 lg:mx-24 md:mx-8 border bg-no-repeat bg-center bg-[url('../public/TripleTriadLogo.png')]">
                     <Hand cardIDs = {hand1} color = "R"/>
                     <div className="flex justify-center">
                         <div className="grid grid-rows-3 grid-flow-col justify-center w-24">

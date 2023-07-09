@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: SeedComputer;
+    /* font-weight: 400; */
+    src: url(../public/fonts/seed-computer.ttf);
+}
+
+html {
+    font-family: SeedComputer;
+    cursor: url(../public/cursors/cursor.cur), pointer;
+}

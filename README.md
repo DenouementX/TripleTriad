@@ -1,6 +1,8 @@
 # Triple Triad
 A web implementation of the card mini-game [Triple Triad](https://finalfantasy.fandom.com/wiki/Triple_Triad_(Final_Fantasy_VIII)) from Final Fantasy VIII
 
+Website Link: [https://triple-triad.vercel.app/sandbox](https://triple-triad.vercel.app/sandbox)
+
 ## TODO
 - [ ] Implement MVP requirements
     - [x] Add scoring labels

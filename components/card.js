@@ -1,17 +1,13 @@
 import Image from "next/image";
 import { getCard, getCardImageURL } from "../lib/cardHelper";
 
-export default function Card({cardID, color}) {
+export default function Card({cardID, color, owner}) {
+
     var cardInfo = getCard(cardID);
-    const RELATIVEPATH = '/../public/cards/';
-    var cardURL = getCardImageURL(cardID, RELATIVEPATH);
-    
-    function drag(event) {
-        event.dataTransfer.setData("Card", event.target.id);
-    }
+    var cardURL = getCardImageURL(cardID, '/../public/cards/');
 
     return (
-        <div className="relative" id={cardID} draggable="true" onDragStart={()=>drag(event)}>
+        <div className="relative">
             <Image
                 className={`h-32 w-28 ${color === 'R' ? 'bg-red-300' : 'bg-blue-300'}`}
                 src={cardURL}
@@ -29,6 +25,5 @@ export default function Card({cardID, color}) {
             {/* Hack to make entire card draggable, not just the image */}
             <div className="absolute top-0 left-0 h-32 w-28 opacity-0"></div>
         </div>
-      
     );
 }

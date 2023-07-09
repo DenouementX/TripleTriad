@@ -22,6 +22,16 @@ export default function Game() {
         setGameboardColor(newGameboardColor);
     }
 
+    function countColor (color) {
+        var count = 0;
+        for (const c of gameboardColor) {
+            if (c === color) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     useEffect(()=>{
         setHand1(generateRandomHand);
         setHand2(generateRandomHand);
@@ -34,20 +44,25 @@ export default function Game() {
     },[gameboard])
 
     useEffect(()=>{
-        console.log(gameboardColor);
+        setRedScore(countColor("R"));
+        setBlueScore(countColor("B"));
     },[gameboardColor])
     
     return (
         <GameboardColorContext.Provider value={{gameboardColor, updateGameboardColor}}>
             <GameboardContext.Provider value={{gameboard, updateGameboard}}>
                 <div className="bg-[#E9DAC4] mx-40 border bg-no-repeat bg-center bg-[url('../public/TripleTriadLogo.png')]">
-                    <Hand cardIDs = {hand1} color = "R" owner = {1}/>
-                    <div className="flex justify-center items-end">
-                        {/* <p className="text-9xl text-red-400 items-start">{blueScore}</p> */}
+                    <Hand cardIDs = {hand1} color = "R"/>
+                    <div className="flex justify-center">
+                        <div className="grid grid-rows-3 grid-flow-col justify-center w-24">
+                            <p className="text-9xl text-red-400 items-start">{redScore}</p>
+                        </div>
                         <Gameboard />
-                        {/* <p className="text-9xl text-blue-400 items-end">{redScore}</p> */}
+                        <div className="grid grid-rows-3 grid-flow-col justify-center w-24">
+                            <p className="row-start-3 text-9xl text-blue-400 items-end">{blueScore}</p>
+                        </div>
                     </div>
-                    <Hand cardIDs = {hand2} color = "B" owner = {2} />
+                    <Hand cardIDs = {hand2} color = "B"/>
                 </div>
             </GameboardContext.Provider>
         </GameboardColorContext.Provider>

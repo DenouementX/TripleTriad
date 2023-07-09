@@ -15,7 +15,7 @@ export default function Gameboard() {
 
     return (
         <div>
-            <div className="grid grid-rows-3 grid-flow-col justify-center gap-2">
+            <div className="grid grid-rows-3 grid-flow-col gap-2">
                 <GameboardCell position={0} onCardPlayed={onCardPlayed}></GameboardCell>
                 <GameboardCell position={3} onCardPlayed={onCardPlayed}></GameboardCell>
                 <GameboardCell position={6} onCardPlayed={onCardPlayed}></GameboardCell>

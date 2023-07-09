@@ -3,12 +3,13 @@ A web implementation of the card mini-game [Triple Triad](https://finalfantasy.f
 
 ## TODO
 - [ ] Implement MVP requirements
-    - [ ] Add scoring labels
-    - [ ] Make hand generation ignore duplicate cards
-    - [ ] Make card flip animations cooler
+    - [x] Add scoring labels
+    - [x] Make hand generation ignore duplicate cards
+    - [x] Make card flip animations cooler
     - [ ] Include game sound and card sound effects with volume toggle
     - [ ] Implement turn based movement
-- [ ] Implement adventure mode
+    - [ ] Get custom cursor to work : /
+- [ ] Create adventure mode
     - [ ] Create level picker page
 - [ ] Allow users to save progress
     - [ ] Create log-in and intro page

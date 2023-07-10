@@ -5,7 +5,8 @@ import { generateRandomHand } from "../lib/cardHelper";
 import { GameboardContext } from "../context/gameboardContext";
 import { GameboardColorContext } from "../context/gameboardColorContext";
 import { getUpdatedGameboardColor } from "../lib/gameHelper";
-
+import MusicToggler from "./musicToggler";
+import normal from '../public/sounds/bgm.mp3';
 
 export default function Game() {
     const [hand1, setHand1] = useState([0,0,0,0,0]);
@@ -52,7 +53,12 @@ export default function Game() {
         <GameboardColorContext.Provider value={{gameboardColor, updateGameboardColor}}>
             <GameboardContext.Provider value={{gameboard, updateGameboard}}>
                 <div className="bg-[#E9DAC4] xl:mx-40 lg:mx-24 md:mx-8 border bg-no-repeat bg-center bg-[url('../public/TripleTriadLogo.png')]">
-                    <Hand cardIDs = {hand1} color = "R"/>
+                    <div className="relative">
+                        <div className="absolute right-4">
+                            <MusicToggler soundLocation={normal}></MusicToggler>
+                        </div>
+                        <Hand cardIDs = {hand1} color = "R"/>
+                    </div>
                     <div className="flex justify-center">
                         <div className="grid grid-rows-3 grid-flow-col justify-center w-24">
                             <p className="text-9xl text-red-400 items-start">{redScore}</p>

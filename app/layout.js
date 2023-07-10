@@ -9,7 +9,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className='bg-[#AC8E60]'>
         {children}
-        <footer className="fixed bottom-0 py-2 bg-[#BD8E83] text-center w-full border border-[#AC8E60] text-2xl">
+        <footer className="fixed bottom-0 py-1 bg-[#BD8E83] text-center w-full border border-[#AC8E60] text-2xl">
           Made with ❤️ by Lawrence Mao
         </footer>
       </body>

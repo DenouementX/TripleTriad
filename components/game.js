@@ -7,6 +7,7 @@ import { GameboardColorContext } from "../context/gameboardColorContext";
 import { getUpdatedGameboardColor } from "../lib/gameHelper";
 import MusicToggler from "./musicToggler";
 import normal from '../public/sounds/bgm.mp3';
+import { PlayerTurnContext } from "../context/playerTurnContext";
 
 export default function Game() {
     const [hand1, setHand1] = useState([0,0,0,0,0]);
@@ -15,12 +16,16 @@ export default function Game() {
     const [blueScore, setBlueScore] = useState(0);
     const [gameboard, setGameboard] = useState(Array(10).fill(-1)); // Manage state for gameboard cards
     const [gameboardColor, setGameboardColor] = useState(Array(9).fill(-1)); // Manage state for gameboard colors
+    const [playerTurn, setPlayerTurn] = useState("B"); // Manage state for game turn
 
     function updateGameboard (newGameboard) {
         setGameboard(newGameboard);
     }
     function updateGameboardColor(newGameboardColor) {
         setGameboardColor(newGameboardColor);
+    }
+    function updatePlayerTurn(newPlayerTurn) {
+        setPlayerTurn(newPlayerTurn);
     }
 
     function countColor (color) {
@@ -50,27 +55,29 @@ export default function Game() {
     },[gameboardColor])
     
     return (
-        <GameboardColorContext.Provider value={{gameboardColor, updateGameboardColor}}>
-            <GameboardContext.Provider value={{gameboard, updateGameboard}}>
-                <div className="bg-[#E9DAC4] xl:mx-40 lg:mx-24 md:mx-8 border bg-no-repeat bg-center bg-[url('../public/TripleTriadLogo.png')]">
-                    <div className="relative">
-                        <div className="absolute right-4">
-                            <MusicToggler soundLocation={normal}></MusicToggler>
+        <PlayerTurnContext.Provider value={{playerTurn, updatePlayerTurn}}>
+            <GameboardColorContext.Provider value={{gameboardColor, updateGameboardColor}}>
+                <GameboardContext.Provider value={{gameboard, updateGameboard}}>
+                    <div className="bg-[#E9DAC4] xl:mx-40 lg:mx-24 md:mx-8 border bg-no-repeat bg-center bg-[url('../public/TripleTriadLogo.png')]">
+                        <div className="relative">
+                            <div className="absolute right-4">
+                                <MusicToggler soundLocation={normal}></MusicToggler>
+                            </div>
+                            <Hand cardIDs = {hand1} color = "R"/>
                         </div>
-                        <Hand cardIDs = {hand1} color = "R"/>
+                        <div className="flex justify-center">
+                            <div className="grid grid-rows-3 grid-flow-col justify-center w-24">
+                                <p className="text-9xl text-red-400 items-start">{redScore}</p>
+                            </div>
+                            <Gameboard />
+                            <div className="grid grid-rows-3 grid-flow-col justify-center w-24">
+                                <p className="row-start-3 text-9xl text-blue-400 items-end">{blueScore}</p>
+                            </div>
+                        </div>
+                        <Hand cardIDs = {hand2} color = "B"/>
                     </div>
-                    <div className="flex justify-center">
-                        <div className="grid grid-rows-3 grid-flow-col justify-center w-24">
-                            <p className="text-9xl text-red-400 items-start">{redScore}</p>
-                        </div>
-                        <Gameboard />
-                        <div className="grid grid-rows-3 grid-flow-col justify-center w-24">
-                            <p className="row-start-3 text-9xl text-blue-400 items-end">{blueScore}</p>
-                        </div>
-                    </div>
-                    <Hand cardIDs = {hand2} color = "B"/>
-                </div>
-            </GameboardContext.Provider>
-        </GameboardColorContext.Provider>
+                </GameboardContext.Provider>
+            </GameboardColorContext.Provider>
+        </PlayerTurnContext.Provider>
     );
 }

@@ -1,16 +1,22 @@
 import { useContext, useState } from "react";
 import GameboardCell from "./gameboardCell";
 import { GameboardContext } from "../context/gameboardContext";
+import { PlayerTurnContext } from "../context/playerTurnContext";
 
 export default function Gameboard() {
-
     const {gameboard, updateGameboard} = useContext(GameboardContext);
+    const {playerTurn, updatePlayerTurn} = useContext(PlayerTurnContext);
 
     const onCardPlayed = (position, cardID) => {
         var newGameboard = gameboard.slice();
         newGameboard[position] = cardID;
         newGameboard[9] = position;
         updateGameboard(newGameboard);
+        if (playerTurn === "B") {
+            updatePlayerTurn("R");
+        } else {
+            updatePlayerTurn("B");
+        }
     }
 
     return (

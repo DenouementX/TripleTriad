@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { GameboardContext } from "../context/gameboardContext";
-import { GameboardColorContext } from "../context/gameboardColorContext";
-import Card from "./card";
-import selectSound from '../public/sounds/sound-select.mp3';
-import invalidSound from '../public/sounds/sound-invalid.mp3';
-import soundTurn from '../public/sounds/sound-turn.mp3';
-import { PlayerTurnContext } from "../context/playerTurnContext";
+import { GameboardContext } from "../../context/gameboardContext";
+import { GameboardColorContext } from "../../context/gameboardColorContext";
+import Card from "../card";
+import selectSound from '../../public/sounds/sound-select.mp3';
+import invalidSound from '../../public/sounds/sound-invalid.mp3';
+import soundTurn from '../../public/sounds/sound-turn.mp3';
+import { PlayerTurnContext } from "../../context/playerTurnContext";
 
 export default function PlayingCard({cardID, color}) {
     const {gameboard, updateGameboard} = useContext(GameboardContext);

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import cardDroppedSound from '../public/sounds/sound-card.mp3';
+import cardDroppedSound from '../../public/sounds/sound-card.mp3';
 
 export default function GameboardCell({position, onCardPlayed}) {
     const [isHover, setIsHover] = useState(false);

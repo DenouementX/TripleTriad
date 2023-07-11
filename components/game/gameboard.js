@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import GameboardCell from "./gameboardCell";
-import { GameboardContext } from "../context/gameboardContext";
-import { PlayerTurnContext } from "../context/playerTurnContext";
+import { GameboardContext } from "../../context/gameboardContext";
+import { PlayerTurnContext } from "../../context/playerTurnContext";
 
 export default function Gameboard() {
     const {gameboard, updateGameboard} = useContext(GameboardContext);

@@ -1,6 +1,6 @@
 'use client';
 
-import Hand from "../../components/hand";
+import Opponent from "../../components/menu/opponent";
 
 export default function Page() {
     var cardIDs = [];
@@ -10,9 +10,7 @@ export default function Page() {
     
     return (
         <div className="mb-16 mt-4">
-            {cardIDs.map(cardID => (
-                <Hand cardIDs = {cardID} color="G"></Hand>
-            ))}
+            <Opponent name="Goldie" description="A mighty golden retriever who is set on being the triple triad champion. Is he all bark with no bite?" difficulty={2}/>
         </div>
     );
 }

@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import Gameboard from "./gameboard";
 import GameHand from "./gameHand";
-import { generateRandomHand } from "../lib/cardHelper";
-import { GameboardContext } from "../context/gameboardContext";
-import { GameboardColorContext } from "../context/gameboardColorContext";
-import { getUpdatedGameboardColor } from "../lib/gameHelper";
-import MusicToggler from "./musicToggler";
-import normal from '../public/sounds/bgm.mp3';
-import { PlayerTurnContext } from "../context/playerTurnContext";
+import { generateRandomHand } from "../../lib/cardHelper";
+import { GameboardContext } from "../../context/gameboardContext";
+import { GameboardColorContext } from "../../context/gameboardColorContext";
+import { getUpdatedGameboardColor } from "../../lib/gameHelper";
+import MusicToggler from "../musicToggler";
+import normal from '../../public/sounds/bgm.mp3';
+import { PlayerTurnContext } from "../../context/playerTurnContext";
 import EndScreen from "./endScreen";
 
-export default function Game() {
+export default function SandboxGame() {
     const [hand1, setHand1] = useState([0,0,0,0,0]);
     const [hand2, setHand2] = useState([0,0,0,0,0]);
     const [redScore, setRedScore] = useState(0);

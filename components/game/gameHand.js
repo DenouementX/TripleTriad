@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Image from "next/image";
 import PlayingCard from "./playingCard";
-import { PlayerTurnContext } from "../context/playerTurnContext";
+import { PlayerTurnContext } from "../../context/playerTurnContext";
 
 export default function GameHand({cardIDs, color}) {
     const {playerTurn, updatePlayerTurn} = useContext(PlayerTurnContext);

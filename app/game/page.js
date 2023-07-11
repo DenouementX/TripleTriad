@@ -1,11 +1,11 @@
 'use client';
 
-import SandboxGame from "../../components/game/sandboxGame";
+import Game from "../../components/game/game";
 
 export default function Page() {
   return (
     <div className="drop-shadow-2xl pt-4 pb-12">
-      <SandboxGame />
+      <Game />
     </div>
   );
 }

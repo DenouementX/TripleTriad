@@ -22,7 +22,7 @@ export default function EndScreen({winner}) {
   const handleClose = () => setOpen(false);
 
   React.useEffect(()=>{
-    if (winner === "B" || winner === "R" || winner === "G") {
+    if (winner === "B" || winner === "R") {
         setOpen(true);
     }
   }, [winner])

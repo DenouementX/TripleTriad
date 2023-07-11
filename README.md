@@ -11,7 +11,7 @@ Website Link: [https://triple-triad.vercel.app/sandbox](https://triple-triad.ver
     - [x] Include game sound and card sound effects with volume toggle
     - [x] Implement turn based movement
     - [x] Get custom cursor to work : /
-    - [ ] Create winning/losing screen
+    - [x] Create winning/losing screen
 - [ ] Create adventure mode
     - [ ] Create level picker page
 - [ ] Allow users to save progress

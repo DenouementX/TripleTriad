@@ -8,6 +8,7 @@ import { getUpdatedGameboardColor } from "../lib/gameHelper";
 import MusicToggler from "./musicToggler";
 import normal from '../public/sounds/bgm.mp3';
 import { PlayerTurnContext } from "../context/playerTurnContext";
+import EndScreen from "./endScreen";
 
 export default function Game() {
     const [hand1, setHand1] = useState([0,0,0,0,0]);
@@ -17,6 +18,7 @@ export default function Game() {
     const [gameboard, setGameboard] = useState(Array(10).fill(-1)); // Manage state for gameboard cards
     const [gameboardColor, setGameboardColor] = useState(Array(9).fill(-1)); // Manage state for gameboard colors
     const [playerTurn, setPlayerTurn] = useState("B"); // Manage state for game turn
+    const [winner, setWinner] = useState("G");
 
     function updateGameboard (newGameboard) {
         setGameboard(newGameboard);
@@ -50,14 +52,26 @@ export default function Game() {
     },[gameboard])
 
     useEffect(()=>{
-        setRedScore(countColor("R"));
-        setBlueScore(countColor("B"));
+        var redCount = countColor("R");
+        var blueCount = countColor("B");
+        setRedScore(redCount);
+        setBlueScore(blueCount);
+        if (redCount + blueCount === 9) {
+            if (redCount > blueCount) {
+                console.log("Red Player Wins!");
+                setWinner("R");
+            } else {
+                console.log("Blue Player Wins!");
+                setWinner("B");
+            }
+        }
     },[gameboardColor])
     
     return (
         <PlayerTurnContext.Provider value={{playerTurn, updatePlayerTurn}}>
             <GameboardColorContext.Provider value={{gameboardColor, updateGameboardColor}}>
                 <GameboardContext.Provider value={{gameboard, updateGameboard}}>
+                    <EndScreen winner = {winner}></EndScreen>
                     <div className="bg-[#E9DAC4] xl:mx-40 lg:mx-24 md:mx-8 border bg-no-repeat bg-center bg-[url('../public/TripleTriadLogo.png')]">
                         <div className="relative">
                             <div className="absolute right-4">

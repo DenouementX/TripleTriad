@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Gameboard from "./gameboard";
-import Hand from "./hand";
+import GameHand from "./gameHand";
 import { generateRandomHand } from "../lib/cardHelper";
 import { GameboardContext } from "../context/gameboardContext";
 import { GameboardColorContext } from "../context/gameboardColorContext";
@@ -77,7 +77,7 @@ export default function Game() {
                             <div className="absolute right-4">
                                 <MusicToggler soundLocation={normal}></MusicToggler>
                             </div>
-                            <Hand cardIDs = {hand1} color = "R"/>
+                            <GameHand cardIDs = {hand1} color = "R"/>
                         </div>
                         <div className="flex justify-center">
                             <div className="grid grid-rows-3 grid-flow-col justify-center w-24">
@@ -88,7 +88,7 @@ export default function Game() {
                                 <p className="row-start-3 text-9xl text-blue-500 items-end">{blueScore}</p>
                             </div>
                         </div>
-                        <Hand cardIDs = {hand2} color = "B"/>
+                        <GameHand cardIDs = {hand2} color = "B"/>
                     </div>
                 </GameboardContext.Provider>
             </GameboardColorContext.Provider>

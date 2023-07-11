@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { getCard, getCardImageURL } from "../lib/cardHelper";
 
-export default function Card({cardID, color, owner}) {
+export default function Card({cardID, color}) {
 
     var cardInfo = getCard(cardID);
     var cardURL = getCardImageURL(cardID, '/cards/');
@@ -9,7 +9,11 @@ export default function Card({cardID, color, owner}) {
     return (
         <div className="relative">
             <Image
-                className={`h-32 w-28 ${color === 'R' ? 'bg-[url("/cards/red.png")] bg-cover' : 'bg-[url("/cards/blue.png")] bg-cover'}`}
+                className={`h-32 w-28 ${color === 'R' ? 'bg-[url("/cards/red.png")] bg-cover' 
+                    : color === 'B' ? 'bg-[url("/cards/blue.png")] bg-cover'
+                    :
+                    'bg-[url("/cards/gray.png")] bg-cover'
+                }`}
                 src={cardURL}
                 width={150}
                 height={150}

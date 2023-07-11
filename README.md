@@ -9,7 +9,7 @@ Website Link: [https://triple-triad.vercel.app/sandbox](https://triple-triad.ver
     - [x] Make hand generation ignore duplicate cards
     - [x] Make card flip animations cooler
     - [x] Include game sound and card sound effects with volume toggle
-    - [ ] Implement turn based movement
+    - [x] Implement turn based movement
     - [x] Get custom cursor to work : /
     - [ ] Create winning/losing screen
 - [ ] Create adventure mode

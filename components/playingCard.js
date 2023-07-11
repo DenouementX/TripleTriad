@@ -52,7 +52,7 @@ export default function PlayingCard({cardID, color}) {
     }, [cardColor])
 
     return (
-        <div>
+        <div className="h-32 w-28 border rounded border-[#BD8E83]">
             {placed ? 
                 <div id={cardID + "|" + color} className={cardFlipped ? 'transition ease-in-out duration-500 delay-50 rotate-[360deg]' : ''}>
                     <Card cardID = {cardID} color = {cardColor}/>

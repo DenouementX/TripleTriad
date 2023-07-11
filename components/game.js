@@ -67,11 +67,11 @@ export default function Game() {
                         </div>
                         <div className="flex justify-center">
                             <div className="grid grid-rows-3 grid-flow-col justify-center w-24">
-                                <p className="text-9xl text-red-400 items-start">{redScore}</p>
+                                <p className="text-9xl text-red-500 items-start">{redScore}</p>
                             </div>
                             <Gameboard />
                             <div className="grid grid-rows-3 grid-flow-col justify-center w-24">
-                                <p className="row-start-3 text-9xl text-blue-400 items-end">{blueScore}</p>
+                                <p className="row-start-3 text-9xl text-blue-500 items-end">{blueScore}</p>
                             </div>
                         </div>
                         <Hand cardIDs = {hand2} color = "B"/>

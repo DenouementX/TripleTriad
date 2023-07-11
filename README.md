@@ -4,7 +4,7 @@ A web implementation of the card mini-game [Triple Triad](https://finalfantasy.f
 Website Link: [https://triple-triad.vercel.app/sandbox](https://triple-triad.vercel.app/sandbox)
 
 ## TODO
-- [ ] Implement MVP requirements
+- [x] Implement MVP requirements
     - [x] Add scoring labels
     - [x] Make hand generation ignore duplicate cards
     - [x] Make card flip animations cooler

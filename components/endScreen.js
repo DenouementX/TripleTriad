@@ -22,7 +22,7 @@ export default function EndScreen({winner}) {
   const handleClose = () => setOpen(false);
 
   React.useEffect(()=>{
-    if (winner === "B" || winner === "R") {
+    if (winner === "B" || winner === "R" || winner === "G") {
         setOpen(true);
     }
   }, [winner])
@@ -34,16 +34,12 @@ export default function EndScreen({winner}) {
         onClick={handleClose}
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            <p className='flex justify-center'>
+            <p className='flex justify-center text-4xl'>
                 Player {winner === "B" ? <p className='text-blue-500 px-2'> BLUE </p> : <p className='text-red-500 px-2'> RED </p>} won the game!
             </p>
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <p className='italic'>
+            <p className='italic text-xl'>
                 Click anywhere to close this window
             </p>
-          </Typography>
         </Box>
       </Modal>
     </div>

@@ -28,14 +28,14 @@ export default function PlayingCard({cardID, color}) {
     }
 
     useEffect(() => {
-        if (gameboard.includes(cardID + "|" + color)) {
+        if (gameboard.includes(cardID + color)) {
             setPlaced(true);
         }
     }, [gameboard]);
 
     useEffect(() => {
-        if (gameboard.includes(cardID + "|" + color)) {
-            var cardPosition = gameboard.indexOf(cardID + "|" + color);
+        if (gameboard.includes(cardID + color)) {
+            var cardPosition = gameboard.indexOf(cardID + color);
             if (gameboardColor[cardPosition] !== cardColor) {
                 setCardColor(gameboardColor[cardPosition]);
             }
@@ -54,16 +54,16 @@ export default function PlayingCard({cardID, color}) {
     return (
         <div className="h-32 w-28 border rounded border-[#BD8E83]">
             {placed ? 
-                <div id={cardID + "|" + color} className={cardFlipped ? 'transition ease-in-out duration-500 delay-50 rotate-[360deg]' : ''}>
+                <div id={cardID + color} className={cardFlipped ? 'transition ease-in-out duration-500 delay-50 rotate-[360deg]' : ''}>
                     <Card cardID = {cardID} color = {cardColor}/>
                 </ div>
                 :
                 playerTurn === color ?
-                    <div id={cardID + "|" + color} className="transition ease-in-out delay-50 hover:scale-125 hover:-translate-y-4" draggable="true" onDragStart={()=>drag(event)} onMouseEnter={playSelect}>
+                    <div id={cardID + color} className="transition ease-in-out delay-50 hover:scale-125 hover:-translate-y-4" draggable="true" onDragStart={()=>drag(event)} onMouseEnter={playSelect}>
                         <Card cardID = {cardID} color = {cardColor}/>
                     </div>
                     :
-                    <div id={cardID + "|" + color} draggable="false" onClick={playInvalid}>
+                    <div id={cardID + color} draggable="false" onClick={playInvalid}>
                         <Card cardID = {cardID} color = {cardColor}/>
                     </div>
             }

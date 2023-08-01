@@ -12,6 +12,7 @@ Website Link: [https://triple-triad.vercel.app/sandbox](https://triple-triad.ver
     - [x] Implement turn based movement
     - [x] Get custom cursor to work : /
     - [x] Create winning/losing screen
+- [ ] Implement enemy AI
 - [ ] Create adventure mode
     - [ ] Create level picker page
 - [ ] Allow users to save progress

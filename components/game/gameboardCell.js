@@ -22,6 +22,6 @@ export default function GameboardCell({position, onCardPlayed}) {
     }
     
     return (
-        <div className={`h-32 w-28 border border-1 rounded border-dashed border-[#BD8E83] ${isHover ? 'bg-[#c8edc7]' : ''}`}  onDragEnter={dragEnter} onDragLeave={dragLeave} onDrop={()=>drop(event)} onDragOver={()=>allowDrag(event)} />
+        <div id={position} className={`h-32 w-28 border border-1 rounded border-dashed border-[#BD8E83] ${isHover ? 'bg-[#c8edc7]' : ''}`}  onDragEnter={dragEnter} onDragLeave={dragLeave} onDrop={()=>drop(event)} onDragOver={()=>allowDrag(event)} />
     );
 }

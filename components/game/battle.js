@@ -9,10 +9,13 @@ import MusicToggler from "../musicToggler";
 import normal from '../../public/sounds/bgm.mp3';
 import { PlayerTurnContext } from "../../context/playerTurnContext";
 import EndScreen from "./endScreen";
+import $ from 'jquery';
+import cardDroppedSound from '../../public/sounds/sound-card.mp3';
+import { playStupid } from "../../lib/gameAI";
 
-export default function Game() {
-    const [hand1, setHand1] = useState([0,0,0,0,0]);
-    const [hand2, setHand2] = useState([0,0,0,0,0]);
+export default function Battle() {
+    const [hand1, setHand1] = useState([0,0,0,0,0]); // Red
+    const [hand2, setHand2] = useState([0,0,0,0,0]); // Blue
     const [redScore, setRedScore] = useState(0);
     const [blueScore, setBlueScore] = useState(0);
     const [gameboard, setGameboard] = useState(Array(10).fill(-1)); // Manage state for gameboard cards
@@ -41,8 +44,31 @@ export default function Game() {
     }
 
     useEffect(()=>{
-        setHand1(generateRandomHand);
-        setHand2(generateRandomHand);
+        var redCount = countColor("R");
+        var blueCount = countColor("B");
+        if (playerTurn === "R" && redCount + blueCount < 8) { // Prevent call after game has ended
+            setTimeout(() => {
+                var play = playStupid(hand1, hand2, gameboard, gameboardColor);
+                var cardID = play[0];
+                var position = parseInt(play[1]);
+                $('#' + cardID).detach().appendTo('#' + position);
+                var newGameboard = gameboard.slice();
+                newGameboard[position] = cardID;
+                newGameboard[9] = position;
+                setGameboard(newGameboard);
+                if (playerTurn === "B") {
+                    setPlayerTurn("R");
+                } else {
+                    setPlayerTurn("B");
+                }
+                new Audio(cardDroppedSound).play();
+            }, 1000);
+        }
+    },[playerTurn])
+
+    useEffect(()=>{
+        setHand1([1, 2, 3, 4, 5]);
+        setHand2([1, 2, 3, 4, 5]);
     },[])
 
     useEffect(()=>{
@@ -75,7 +101,7 @@ export default function Game() {
                             <div className="absolute right-4">
                                 <MusicToggler soundLocation={normal}></MusicToggler>
                             </div>
-                            <GameHand cardIDs = {hand1} color = "R"/>
+                            <GameHand cardIDs = {hand1} color = "R" mode = "B" />
                         </div>
                         <div className="flex justify-center">
                             <div className="grid grid-rows-3 grid-flow-col justify-center w-24">
@@ -86,7 +112,7 @@ export default function Game() {
                                 <p className="row-start-3 text-9xl text-blue-500 items-end">{blueScore}</p>
                             </div>
                         </div>
-                        <GameHand cardIDs = {hand2} color = "B"/>
+                        <GameHand cardIDs = {hand2} color = "B" mode= "B" />
                     </div>
                 </GameboardContext.Provider>
             </GameboardColorContext.Provider>

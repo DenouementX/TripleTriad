@@ -1,11 +1,11 @@
 'use client';
 
-import Game from "../../components/game/game";
+import Battle from "../../components/game/battle";
 
 export default function Page() {
   return (
     <div className="drop-shadow-2xl pt-4 pb-12">
-      <Game />
+      <Battle />
     </div>
   );
 }

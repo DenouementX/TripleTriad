@@ -3,8 +3,9 @@ import Image from "next/image";
 import PlayingCard from "./playingCard";
 import { PlayerTurnContext } from "../../context/playerTurnContext";
 
-export default function GameHand({cardIDs, color}) {
+export default function GameHand({cardIDs, color, mode}) {
     const {playerTurn, updatePlayerTurn} = useContext(PlayerTurnContext);
+    
     return (
         <div className="flex justify-center items-center rounded-md xl:mx-44 lg:mx-24 md:mx-12 my-2 h-36">
             <div className="relative -gap-x-2">
@@ -20,23 +21,23 @@ export default function GameHand({cardIDs, color}) {
                         />
                     </div>
                     :
-                    "" 
+                    ""
                 }
             </div>
             <div className="m-1">
-                <PlayingCard cardID = {cardIDs[0]} color = {color}/>
+                <PlayingCard cardID = {cardIDs[0]} color = {color} mode = {mode}/>
             </div>
             <div className="m-1">
-                <PlayingCard cardID = {cardIDs[1]} color = {color}/>
+                <PlayingCard cardID = {cardIDs[1]} color = {color} mode = {mode}/>
             </div>
             <div className="m-1">
-                <PlayingCard cardID = {cardIDs[2]} color = {color}/>
+                <PlayingCard cardID = {cardIDs[2]} color = {color} mode = {mode}/>
             </div>
             <div className="m-1">
-                <PlayingCard cardID = {cardIDs[3]} color = {color}/>
+                <PlayingCard cardID = {cardIDs[3]} color = {color} mode = {mode}/>
             </div>
             <div className="m-1">
-                <PlayingCard cardID = {cardIDs[4]} color = {color}/>
+                <PlayingCard cardID = {cardIDs[4]} color = {color} mode = {mode}/>
             </div>
         </div>
     );

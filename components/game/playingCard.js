@@ -7,7 +7,7 @@ import invalidSound from '../../public/sounds/sound-invalid.mp3';
 import soundTurn from '../../public/sounds/sound-turn.mp3';
 import { PlayerTurnContext } from "../../context/playerTurnContext";
 
-export default function PlayingCard({cardID, color}) {
+export default function PlayingCard({cardID, color, mode}) {
     const {gameboard, updateGameboard} = useContext(GameboardContext);
     const {gameboardColor, updateGameboardColor} = useContext(GameboardColorContext);
     const {playerTurn, updatePlayerTurn} = useContext(PlayerTurnContext);
@@ -58,7 +58,8 @@ export default function PlayingCard({cardID, color}) {
                     <Card cardID = {cardID} color = {cardColor}/>
                 </ div>
                 :
-                playerTurn === color ?
+                mode === "B" ?
+                    color === "B" && playerTurn === "B" ?
                     <div id={cardID + color} className="transition ease-in-out delay-50 hover:scale-125 hover:-translate-y-4" draggable="true" onDragStart={()=>drag(event)} onMouseEnter={playSelect}>
                         <Card cardID = {cardID} color = {cardColor}/>
                     </div>
@@ -66,6 +67,15 @@ export default function PlayingCard({cardID, color}) {
                     <div id={cardID + color} draggable="false" onClick={playInvalid}>
                         <Card cardID = {cardID} color = {cardColor}/>
                     </div>
+                :
+                    playerTurn === color ?
+                        <div id={cardID + color} className="transition ease-in-out delay-50 hover:scale-125 hover:-translate-y-4" draggable="true" onDragStart={()=>drag(event)} onMouseEnter={playSelect}>
+                            <Card cardID = {cardID} color = {cardColor}/>
+                        </div>
+                        :
+                        <div id={cardID + color} draggable="false" onClick={playInvalid}>
+                            <Card cardID = {cardID} color = {cardColor}/>
+                        </div>
             }
         </div>
     );

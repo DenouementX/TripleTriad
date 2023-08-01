@@ -44,7 +44,9 @@ export default function Battle() {
     }
 
     useEffect(()=>{
-        if (playerTurn === "R" && winner === "G") {
+        var redCount = countColor("R");
+        var blueCount = countColor("B");
+        if (playerTurn === "R" && redCount + blueCount < 8) { // Prevent call after game has ended
             setTimeout(() => {
                 var play = playStupid(hand1, hand2, gameboard, gameboardColor);
                 var cardID = play[0];
@@ -76,17 +78,14 @@ export default function Battle() {
     },[gameboard])
 
     useEffect(()=>{
-        // console.log(gameboardColor);
         var redCount = countColor("R");
         var blueCount = countColor("B");
         setRedScore(redCount);
         setBlueScore(blueCount);
         if (redCount + blueCount === 9) {
             if (redCount > blueCount) {
-                console.log("Red Player Wins!");
                 setWinner("R");
             } else {
-                console.log("Blue Player Wins!");
                 setWinner("B");
             }
         }
@@ -102,7 +101,7 @@ export default function Battle() {
                             <div className="absolute right-4">
                                 <MusicToggler soundLocation={normal}></MusicToggler>
                             </div>
-                            <GameHand cardIDs = {hand1} color = "R"/>
+                            <GameHand cardIDs = {hand1} color = "R" mode = "B" />
                         </div>
                         <div className="flex justify-center">
                             <div className="grid grid-rows-3 grid-flow-col justify-center w-24">
@@ -113,7 +112,7 @@ export default function Battle() {
                                 <p className="row-start-3 text-9xl text-blue-500 items-end">{blueScore}</p>
                             </div>
                         </div>
-                        <GameHand cardIDs = {hand2} color = "B"/>
+                        <GameHand cardIDs = {hand2} color = "B" mode= "B" />
                     </div>
                 </GameboardContext.Provider>
             </GameboardColorContext.Provider>

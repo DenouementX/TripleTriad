@@ -58,10 +58,8 @@ export default function Game() {
         setBlueScore(blueCount);
         if (redCount + blueCount === 9) {
             if (redCount > blueCount) {
-                console.log("Red Player Wins!");
                 setWinner("R");
             } else {
-                console.log("Blue Player Wins!");
                 setWinner("B");
             }
         }

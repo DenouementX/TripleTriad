@@ -20,7 +20,9 @@ export default function Page() {
         <br />
       </div>
       <p className="text-2xl underline">
-        <Link href="/sandbox">Click here to try a demo of the game</Link>
+        <Link href="/sandbox">Click here to try PvP</Link>
+        <br />
+        <Link href="/game">Click here to battle against AI</Link>
         <br />
         <Link href="/cards">Click here to see all the cards</Link>
         <br />

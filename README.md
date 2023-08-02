@@ -1,7 +1,9 @@
 # Triple Triad
 A web implementation of the card mini-game [Triple Triad](https://finalfantasy.fandom.com/wiki/Triple_Triad_(Final_Fantasy_VIII)) from Final Fantasy VIII
 
-Website Link: [https://triple-triad.vercel.app/sandbox](https://triple-triad.vercel.app/sandbox)
+- Website Link: [https://triple-triad.vercel.app](https://triple-triad.vercel.app)
+- Play against a friend in sandbox mode: [https://triple-triad.vercel.app/sandbox](https://triple-triad.vercel.app/sandbox)
+- Play against AI in game mode: [https://triple-triad.vercel.app/game](https://triple-triad.vercel.app/game)
 
 ## TODO
 - [x] Implement MVP requirements
@@ -12,7 +14,7 @@ Website Link: [https://triple-triad.vercel.app/sandbox](https://triple-triad.ver
     - [x] Implement turn based movement
     - [x] Get custom cursor to work : /
     - [x] Create winning/losing screen
-- [ ] Implement enemy AI
+- [x] Implement enemy AI
 - [ ] Create adventure mode
     - [ ] Create level picker page
 - [ ] Allow users to save progress

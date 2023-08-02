@@ -11,7 +11,7 @@ import { PlayerTurnContext } from "../../context/playerTurnContext";
 import EndScreen from "./endScreen";
 import $ from 'jquery';
 import cardDroppedSound from '../../public/sounds/sound-card.mp3';
-import { playStupid } from "../../lib/gameAI";
+import { playHungry, playStupid } from "../../lib/gameAI";
 
 export default function Battle() {
     const [hand1, setHand1] = useState([0,0,0,0,0]); // Red
@@ -48,7 +48,8 @@ export default function Battle() {
         var blueCount = countColor("B");
         if (playerTurn === "R" && redCount + blueCount < 8) { // Prevent call after game has ended
             setTimeout(() => {
-                var play = playStupid(hand1, hand2, gameboard, gameboardColor);
+                var updatedGameboardColor = getUpdatedGameboardColor(gameboard[9], gameboard, gameboardColor.slice());
+                var play = playHungry(hand1, hand2, gameboard, updatedGameboardColor);
                 var cardID = play[0];
                 var position = parseInt(play[1]);
                 $('#' + cardID).detach().appendTo('#' + position);
@@ -67,8 +68,8 @@ export default function Battle() {
     },[playerTurn])
 
     useEffect(()=>{
-        setHand1([1, 2, 3, 4, 5]);
-        setHand2([1, 2, 3, 4, 5]);
+        setHand1(generateRandomHand);
+        setHand2(generateRandomHand);
     },[])
 
     useEffect(()=>{

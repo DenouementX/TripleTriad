@@ -1,5 +1,5 @@
 # Triple Triad
-A web implementation of the card mini-game [Triple Triad](https://finalfantasy.fandom.com/wiki/Triple_Triad_(Final_Fantasy_VIII)) from Final Fantasy VIII
+A web implementation of the card mini-game [Triple Triad](https://finalfantasy.fandom.com/wiki/Triple_Triad_(Final_Fantasy_VIII)) from Final Fantasy VIII. The frontend is built using React, Tailwind CSS, and jQuery while the backend is powered by Next.js. Future developments will include a hefty backend to save user card collections and decks and upload custom cards.
 
 - Website Link: [https://triple-triad.vercel.app](https://triple-triad.vercel.app)
 - Play against a friend in sandbox mode: [https://triple-triad.vercel.app/sandbox](https://triple-triad.vercel.app/sandbox)
@@ -15,6 +15,7 @@ A web implementation of the card mini-game [Triple Triad](https://finalfantasy.f
     - [x] Get custom cursor to work : /
     - [x] Create winning/losing screen
 - [x] Implement enemy AI
+- [ ] Implement smarter enemy AI
 - [ ] Create adventure mode
     - [ ] Create level picker page
 - [ ] Allow users to save progress
